@@ -1,0 +1,29 @@
+ cd .../blog-microservices-example/microservices
+
+$ cd support/discovery-server;  ./gradlew bootRun
+$ cd support/edge-server;       ./gradlew bootRun
+
+$ cd core/product-service;                ./gradlew bootRun
+$ cd core/recommendation-service;         ./gradlew bootRun
+$ cd core/review-service;                 ./gradlew bootRun
+$ cd composite/product-composite-service; ./gradlew bootRun 
+
+# Discovery Service Dashboard
+http://localhost:8761/
+
+# Consulta producto por integrador con balanceador dinamico : productcomposite
+
+curl -s localhost:8765/productcomposite/product/1
+
+----
+# Consulta servicios atomicos por puertos fisicos
+
+$ curl -s localhost:52564/product/1
+$ curl -s localhost:59745/product/1
+$ curl -s localhost:40776/review?productId=1
+$ curl -s localhost:54405/recommendation?productId=1
+
+----
+DYNAMIC LOAD BALANCING - Ejecucion dos veces
+$ cd .../blog-microservices-example/microservices/core/review-service
+curl -s localhost:8765/productcomposite/product/1

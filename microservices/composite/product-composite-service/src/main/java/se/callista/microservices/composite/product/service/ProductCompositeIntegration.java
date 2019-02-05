@@ -1,25 +1,26 @@
 package se.callista.microservices.composite.product.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
-import se.callista.microservises.core.product.model.Product;
-import se.callista.microservises.core.recommendation.model.Recommendation;
-import se.callista.microservises.core.review.model.Review;
-
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+
+import se.callista.microservises.core.product.model.Product;
+import se.callista.microservises.core.recommendation.model.Recommendation;
+import se.callista.microservises.core.review.model.Review;
+
 /**
- * Created by magnus on 05/03/15.
+ * Created by jemsotry
  */
 @Component
 public class ProductCompositeIntegration {
@@ -168,45 +169,5 @@ public class ProductCompositeIntegration {
         }
     }
 
-// FIXME: DOESN'T WORK. GIVER ERORS LIKE: Caused by: java.lang.ClassCastException: java.util.LinkedHashMap cannot be cast to se.callista.microservises.core.recommendation.model.Recommendation
-//    private <T> T responseString2Type(ResponseEntity<String> response) {
-//        try {
-//            ObjectMapper mapper = new ObjectMapper();
-//            T object = mapper.readValue(response.getBody(), new TypeReference<T>() {});
-//            return object;
-//
-//        } catch (IOException e) {
-//            LOG.warn("IO-err. Failed to read JSON", e);
-//            throw new RuntimeException(e);
-//
-//        } catch (RuntimeException re) {
-//            LOG.warn("RTE-err. Failed to read JSON", re);
-//            throw re;
-//        }
-//    }
-//
-//    /**
-//     * TODO: DO WE REALLY NEED THIS ONE???
-//     *
-//     * @param response
-//     * @param <T>
-//     * @return
-//     */
-//    private <T> List<T> responseString2List(ResponseEntity<String> response) {
-//        try {
-//            ObjectMapper mapper = new ObjectMapper();
-//            List<T> list = mapper.readValue(response.getBody(), new TypeReference<List<T>>() {});
-//            return list;
-//
-//        } catch (IOException e) {
-//            LOG.warn("IO-err. Failed to read JSON", e);
-//            throw new RuntimeException(e);
-//
-//        } catch (RuntimeException re) {
-//            LOG.warn("RTE-err. Failed to read JSON", re);
-//            throw re;
-//        }
-//    }
-//
 
 }

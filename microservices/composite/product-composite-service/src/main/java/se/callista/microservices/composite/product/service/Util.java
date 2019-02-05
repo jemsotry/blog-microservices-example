@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.net.URI;
 
 /**
- * Created by magnus on 08/03/15.
+ * Created by jemsotry
  *
  * TODO: Extract to a common util-lib
  */

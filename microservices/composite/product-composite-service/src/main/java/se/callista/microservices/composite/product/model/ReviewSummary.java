@@ -1,7 +1,7 @@
 package se.callista.microservices.composite.product.model;
 
 /**
- * Created by magnus on 05/03/15.
+ * Created by jemsotry
  */
 public class ReviewSummary {
 
