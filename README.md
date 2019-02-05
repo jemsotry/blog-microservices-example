@@ -19,7 +19,7 @@ BUILD SUCCESSFUL
 Start all projects
 
 ```bash
-$ ./build-all.sh
+$ ./start-all.sh
 ```
 
 ###Step 3: Validating Edge Server and Service Discovery
